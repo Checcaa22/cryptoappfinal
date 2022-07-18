@@ -3,12 +3,12 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { FaExchangeAlt } from 'react-icons/fa';
 import './Home.css';
-
+import {CardHome} from '../components/Home/CardHome';
 
 export const Home = () => {
   const [coins , setCoins ] = useState([]);
   const [loading , setLoading] = useState(false);
- 
+  const [selected , setSelected] = useState([]);
 
 
  useEffect(() => {
@@ -24,42 +24,32 @@ export const Home = () => {
     let coinSymbol= document.getElementById('from').value;
     let coinSymbol2 = document.getElementById('towards').value;
     let amount = document.getElementById('amount').value;
-    Number(amount);
+
     let coin = coins.find(coin => coin.symbol === coinSymbol);
     let coin2 = coins.find(coin => coin.symbol === coinSymbol2);
-    console.log(coin.decimals)
+ 
     amount = amount * 10**( Number(coin.decimals));
     const url = `https://api.0x.org/swap/v1/price?sellToken=${coin.symbol}&buyToken=${coin2.symbol}&sellAmount=${amount}`
-    console.log(url)
-   await fetch(`https://api.0x.org/swap/v1/price?sellToken=${coin.symbol}&buyToken=${coin2.symbol}&sellAmount=${amount}
-   `)
+
+   await fetch(`https://api.0x.org/swap/v1/price?sellToken=${coin.symbol}&buyToken=${coin2.symbol}&sellAmount=${amount}`)
     .then(res => res.json())
     .then(data =>   
     {
-
+      
       if(data.reason){
         alert(data.reason);
         return;
       }
 
-      console.log(data);
+      setSelected([...selected, {
+        from: coin.symbol,
+        address: coin.address,
+        to: coin2.symbol,
+        amount: amount,
+        price: 1 / (Number(data.price).toFixed(4))
+      }])
 
-      //creo los cards con los datos 
-
-      let card = document.createElement('div');
-      card.className = 'card text-center bg-dark animate__animated animate__fadeInUp';
-      card.innerHTML = `
-      <div class="card-body text-light">
-        <h4 class="card-title">${coinSymbol} to ${coinSymbol2}</h4>
-        <p class="card-text"> Adress: ${coin.address}</p>
-        <p class="card-text"> Precio de cambio: ${data.price}</p>
-
-        <a href="#!" class="btn btn-outline-secondary border-0">Comprar ${coin2.symbol} con ${coin.symbol}</a>
-      </div>
-      `;
-
-      document.getElementById('cards').appendChild(card);
-
+      
     })
     .catch(err =>{console.log(err)})
   }
@@ -76,7 +66,17 @@ export const Home = () => {
   return (
 
     <div className="App">
-      <div className='row m-3 '>
+
+      <div className="container">
+        <div className="row">
+          <div className="col-12">
+            <h1 className="text-center">Convertir monedas</h1>
+          </div>
+        </div>
+      </div>
+
+      <div className="container">
+       <div className='row m-3 '>
 
         <div className='col-md-4 mt-2'>
         </div>
@@ -118,9 +118,10 @@ export const Home = () => {
 
       <div> 
         <div id='cards' className='row'>
+          {selected.map(selected1 => <CardHome selected={selected1}></CardHome>)}
         </div>
       </div>
-
+    </div>
     </div>
   
   )

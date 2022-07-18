@@ -1,3 +1,4 @@
+
 .card{
     margin-top: 10px;
     margin-bottom: 10px;
@@ -7,10 +8,25 @@
     border-radius: 10px;
     background-color: #7e5ca5;
     text-align: center;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0px 0px 12px rgba(19, 224, 224, 0.5);
 }
-#btnPick{
 
+.card-select{
+    box-shadow: 0px 0px 10px rgba(19, 224, 224, 0.5);
+}
+
+.coin-card{
+    width: 95%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: #7e5ca5;
+    text-align: center;
+    box-shadow: 0px 0px 12px rgba(19, 224, 224, 0.5);
+    
+}
+
+#btnPick{
+    text-decoration: none;
     border-radius: 10px 10px 10px 10px;
     background: rgba(53,240,208,2);
     color: #3e0a79;
@@ -30,18 +46,15 @@
     color: white;
 }
 #btnPick:disabled{
-    background: #3e0a79;
-    box-shadow: 0px 0px 10px black;
-    color: white;
+   display: none;
 }
 
 div h1{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: rgb(218, 218, 218);
-    font-size: 40px;
+    color: white;
     font-style: bold;
+    font-size: 2rem;
     text-align: center;
-    
 }
 
 .eliminarBtn{
@@ -53,9 +66,158 @@ div h1{
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
     box-shadow: 0px 0px 10px rgba(19, 224, 224, 0.5);
     border: none;
     float: right;
+}
+
+
+.favouriteSelect{
+        width: 50%;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        background-color:#3e0a79;;
+        color: rgb(218, 218, 218);
+        font-style: bold;
+        margin: 10px auto;
+        border: #2c0658 1px solid;
+        border-radius: 10px 10px 10px 10px;
+    }
+    
+.favouriteSelect:hover{
+    transition: all 0.2s ease-in-out;
+    background: 3e0a79
+}
+
+.card-title{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: white;
+    font-style: bold;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.btn-card-left{
+    text-decoration: none;
+    border-radius: 10px 0px 0px 10px;
+    background: rgba(53,240,208,2);
+    color: #3e0a79;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-shadow: 0px 0px 10px rgba(19, 224, 224, 0.5);
+    border: none;
+    
+}
+.btn-card-left:hover{
+    transition: all 0.2s ease-in-out;
+    background: #3e0a79;
+    box-shadow: 0px 0px 10px black;
+    color: white;
+    text-decoration: none;
+}
+
+.btn-card-right{
+    border-radius: 0px 10px 10px 0px;
+    background: rgba(53,240,208,2);
+    color: #3e0a79;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-shadow: 0px 0px 10px rgba(19, 224, 224, 0.5);
+    border: none;
+    text-decoration: none;
+
+}
+.btn-card-right:hover{
+    transition: all 0.2s ease-in-out;
+    background: #3e0a79;
+    box-shadow: 0px 0px 10px black;
+    color: white;
+    text-decoration: none;
+
+}
+
+
+@media screen and (max-width: 800px) {
+    .card{
+        width: 95%;
+    }
+    .col-md-4{
+        margin-top: 20px;
+    }
+    .card-title{
+        font-size: 1.5rem;
+    }
+    .btn-card-left{
+        font-size: 1rem;
+    }
+    .btn-card-right{
+        font-size: 1rem;
+    }
+    .favouriteSelect{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .card{
+        width: 95%;
+    }
+    .col-md-4{
+        margin-top: 20px;
+    }
+    .card-title{
+        font-size: 1.5rem;
+    }
+    .btn-card-left{
+        font-size: 1.2rem;
+    }
+    .btn-card-right{
+        font-size: 1.2rem;
+    }
+    .favouriteSelect{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    .card{
+        width: 100%;
+    }
+    .col-md-4{
+       margin: 0 auto;
+    }
+    .card-title{
+        font-size: 1.5rem;
+    }
+    .btn-card-left{
+        font-size: 1rem;
+    }
+    .btn-card-right{
+        font-size: 1rem;
+    }
+    .favouriteSelect{
+        width: 100%;
+    }
+}
+    
+
+    
+.link{
+    text-decoration: none;
+    color: #3e0a79;
+}
+
+.link:hover{
+    text-decoration: none;
+    color: white;
 }

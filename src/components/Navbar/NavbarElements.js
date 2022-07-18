@@ -93,7 +93,7 @@ export const NavBtnLink = styled(Link)`
 
 export const Menu = styled.div`
   display: flex;
-  width: 200px;
+  width: 300px;
   height: 40px;
   justify-content: space-between;
   background: #491d7b;

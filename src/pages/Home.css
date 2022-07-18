@@ -94,3 +94,12 @@ div h3{
     float: left;
     height: 48px
 }
+
+.center{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgb(218, 218, 218);
+    font-size: 20px;
+    font-style: bold;
+    text-align: center;
+    margin: 10px 10px 10px 10px;
+}

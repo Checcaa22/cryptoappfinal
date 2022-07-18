@@ -28,6 +28,9 @@ const Navbar = () => {
           <NavLink to='/favourite' activeStyle>
             Favourite
           </NavLink>
+          <NavLink to='/contact' activeStyle>
+            Contact
+          </NavLink>
           </Menu>
         </NavMenu>
         <NavBtn>
